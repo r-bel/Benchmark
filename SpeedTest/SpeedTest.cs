@@ -10,7 +10,7 @@ namespace SpeedTests
 {
     /// <summary>
     /// Speedtesting with tracking of mean, variance and standard deviation to monitor the stability of the results.
-    /// Results are provided in ticks.
+    /// Results are provided in ticks and in microseconds.
     /// Test a piece of code by simply calling TestNow. One can provided a number of observations. Know that every observation calls the routine in an increasing count based on 
     /// DefaultMinRunningTimePerObservation to achieve a lower deviation.
     /// I use static ctor to always have the class providing meaningfull property values.
