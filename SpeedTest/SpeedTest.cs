@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace SpeedTests
+namespace Benchmark
 {
     /// <summary>
     /// Speedtesting with tracking of mean, variance and standard deviation to monitor the stability of the results.
@@ -24,7 +24,7 @@ namespace SpeedTests
         
         public string Label{ get; private set; }
 
-    #region Result properties
+        #region Result properties
         public double MeanInTicks { get; private set; }
         public double VarianceInTicks { get; private set; }
         public double StandardDeviationInTicks { get; private set; }
@@ -32,7 +32,8 @@ namespace SpeedTests
         public double MeanInMicroseconds { get { return (MeanInTicks * 1000) / (Stopwatch.Frequency / 1000); } }
         public double VarianceInMicroseconds { get { return (VarianceInTicks * 1000) / (Stopwatch.Frequency / 1000); } }
         public double StandardDeviationInMicroseconds { get { return (StandardDeviationInTicks * 1000) / (Stopwatch.Frequency / 1000); } }
-    #endregion
+
+        #endregion
                 
         private SpeedTest(string label)
         {
@@ -133,7 +134,7 @@ namespace SpeedTests
                     }
 
                     RefreshStatistics(values);
-                    Console.WriteLine(this);
+                    //Console.WriteLine(this);
                 }
                 while (TimeSpan.FromTicks(runningTime) < minRunningTime && timesForSameCall < uint.MaxValue);
 
